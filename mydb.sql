@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 13 Sty 2020, 01:36
+-- Czas generowania: 13 Sty 2020, 14:03
 -- Wersja serwera: 10.4.11-MariaDB
 -- Wersja PHP: 7.4.1
 
@@ -116,7 +116,9 @@ INSERT INTO `zdarzenia` (`idZdarzenia`, `idUzytkownika`, `idPriorytetu`, `idKate
 (2, 3, 2, 2, 'Niedziałająca drukarka', 'Drukarka włącza się, ale nie drukuje', 101, '2020-01-12 15:25:48'),
 (3, 2, 3, 1, 'Uprawnienia do programu', 'Nie mogę korzystać z programu X, gdyż nie mam odpowiednich uprawnień', 5, '2019-12-27 13:39:28'),
 (4, 2, 3, 3, 'Instalacja programu Y', 'Potrzebna pomoc w instalacji programu Y', 120, '2020-01-03 13:39:40'),
-(5, 3, 2, 2, 'Niedziałająca klawiatura', 'Klawiatura wcześniej działała bez zarzutu, ale teraz niestety nie działa', 12, '2020-01-09 16:27:10');
+(5, 3, 2, 2, 'Niedziałająca klawiatura', 'Klawiatura wcześniej działała bez zarzutu, ale teraz niestety nie działa', 12, '2020-01-09 16:27:10'),
+(46, 4, 1, 2, 'Błąd logowania w programie Z', 'Wcześnie działający program Z niespodziewanie wylogował użytkownika, a teraz po wprowadzeniu danych wyskakuje błąd', 9, '2020-01-13 12:59:49'),
+(47, 5, 2, 3, 'Nagłe wyłączenie komputera', 'Podczas pracy na komputerze, komputer niespodziewanie wyłącza się, żeby włączyć komputer ponownie system uruchamia się samoczynnie 3 razy', 5, '2020-01-13 13:01:04');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -175,7 +177,7 @@ ALTER TABLE `uzytkownicy`
 -- AUTO_INCREMENT dla tabeli `zdarzenia`
 --
 ALTER TABLE `zdarzenia`
-  MODIFY `idZdarzenia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `idZdarzenia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- Ograniczenia dla zrzutów tabel
