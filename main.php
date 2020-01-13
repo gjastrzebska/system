@@ -24,6 +24,44 @@
 	<div class="naglowek">System obsługi zadań</div>
 	    <div class="create">
             <a href="task.php"><button type="button" id="btn">Utwórz zadanie</button></a>
+            <a href="date.php"><button type="button" id="btn">Raport</button></a>
+
+            <div class="procent">
+            <?php
+            require_once("config.php");
+
+            $polaczenie = @new mysqli($host, $user, $password, $name);
+        
+            if($polaczenie->connect_errno!=0){
+                echo "Error: ".$polaczenie->connect_errno." Opis: ".$polaczenie->connect_error;
+            } 
+            $sql = "SELECT * FROM Zdarzenia WHERE idKategorii=3";
+            
+            $result = $polaczenie->query($sql);
+             if($result->num_rows >0){
+                $zm=0;
+                while($row = $result->fetch_assoc()){
+                    $zm++;
+                }
+            }
+
+
+            $sql2 = "SELECT * FROM Zdarzenia";
+            
+            $result = $polaczenie->query($sql2);
+            if($result->num_rows >0){
+                $zm1=0;
+                while($row = $result->fetch_assoc()){
+                    $zm1++;
+                }
+            }
+
+            $zm3=round((($zm/$zm1)*100), 2);
+            echo "Wykonanych: ".$zm." z ".$zm1."   (".$zm3."%)";
+        
+            $polaczenie->close();
+            ?>
+            </div>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <?php
@@ -60,7 +98,7 @@
                 $polaczenie = @new mysqli($host, $user, $password, $name);
                 $polaczenie->query("SET NAMES 'utf8' COLLATE 'utf8_polish_ci'");
                 $polaczenie->query("SET CHARSET utf8");	
-                $zapytanie = "SELECT z.zdarzenie, z.opis, z.data, z.nr_pokoju, p.nazwa, u.imie, u.nazwisko FROM Zdarzenia z
+                $zapytanie = "SELECT z.idZdarzenia, z.zdarzenie, z.opis, z.data, z.nr_pokoju, p.nazwa, u.imie, u.nazwisko FROM Zdarzenia z
 						LEFT JOIN Kategorie k ON z.idKategorii = k.idKategorii
                         LEFT JOIN Priorytety p ON z.idPriorytetu = p.idPriorytetu 
                         LEFT JOIN Uzytkownicy u ON z.idUzytkownika = u.idUzytkownika
@@ -92,6 +130,10 @@
                         echo"<div class='input100'>".$baza['imie']." ".$baza['nazwisko']."</div>";
                     echo"</div>";
 
+                    $_SESSION['id'] = $baza['idZdarzenia'];
+                    $_SESSION['imie'] = $baza['imie'];
+                    $_SESSION['nazwisko'] = $baza['nazwisko'];
+
                     echo"<a href='update.php'><button class='przycisk'>Zmień status zadania</button></a>";
                     }
                 ?>
@@ -101,7 +143,7 @@
                 <h2 class="title">W Trakcie</h2><hr class="h1">
                 <?php
 	
-                $zapytanie = "SELECT z.zdarzenie, z.opis, z.data, z.nr_pokoju, p.nazwa, u.imie, u.nazwisko FROM Zdarzenia z
+                $zapytanie = "SELECT z.idZdarzenia, z.zdarzenie, z.opis, z.data, z.nr_pokoju, p.nazwa, u.imie, u.nazwisko FROM Zdarzenia z
                 LEFT JOIN Kategorie k ON z.idKategorii = k.idKategorii
                 LEFT JOIN Priorytety p ON z.idPriorytetu = p.idPriorytetu 
                 LEFT JOIN Uzytkownicy u ON z.idUzytkownika = u.idUzytkownika
@@ -133,7 +175,12 @@
                         echo"<div class='input100'>".$baza['imie']." ".$baza['nazwisko']."</div>";
                     echo"</div>";
 
-                    echo"<a href='update.php'><button class='przycisk'>Zmień status zadania</button></a>";
+
+                    $_SESSION['id_2'] = $baza['idZdarzenia'];
+                    $_SESSION['imie_2'] = $baza['imie'];
+                    $_SESSION['nazwisko_2'] = $baza['nazwisko'];
+
+                    echo"<a href='update-2.php'><button class='przycisk'>Zmień status zadania</button></a>";
                 }
                 ?>
             </div>
@@ -142,7 +189,7 @@
                 <h2 class="title">Zrobione</h2><hr class="h1">
                 <?php
 
-                $zapytanie = "SELECT z.zdarzenie, z.opis, z.data, z.nr_pokoju, p.nazwa, u.imie, u.nazwisko FROM Zdarzenia z
+                $zapytanie = "SELECT z.idZdarzenia, z.zdarzenie, z.opis, z.data, z.nr_pokoju, p.nazwa, u.imie, u.nazwisko FROM Zdarzenia z
                 LEFT JOIN Kategorie k ON z.idKategorii = k.idKategorii
                 LEFT JOIN Priorytety p ON z.idPriorytetu = p.idPriorytetu 
                 LEFT JOIN Uzytkownicy u ON z.idUzytkownika = u.idUzytkownika
@@ -174,7 +221,11 @@
                     echo"<div class='input100'>".$baza['imie']." ".$baza['nazwisko']."</div>";
                     echo"</div>";
 
-                    echo"<a href='update.php'><button class='przycisk'>Zmień status zadania</button></a>";
+                    $_SESSION['id_3'] = $baza['idZdarzenia'];
+                    $_SESSION['imie_3'] = $baza['imie'];
+                    $_SESSION['nazwisko_3'] = $baza['nazwisko'];
+
+                    echo"<a href='update-3.php'><button class='przycisk'>Zmień status zadania</button></a>";
                 }
                 ?>
             </div>

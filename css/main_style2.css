@@ -196,6 +196,10 @@ input.input100 {
   background-color: #00ad5f;
 }
 
+.none-dec a {
+  text-decoration: none;
+}
+
 
 
 @media (max-width: 768px) {

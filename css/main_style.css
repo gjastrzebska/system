@@ -40,6 +40,19 @@
 
 #btn:hover {background: #45a049;}
 
+.procent {
+	border: none;
+	background-color: rgb(95, 95, 95);
+	padding: 14px 28px;
+	font-size: 16px;
+	display: inline-block;
+	color: white;
+	font-weight: 500;
+	font-family:Verdana;
+	border-radius:5px;
+	margin-left:35px;
+}
+
 .naglowek {
 	margin-top: 0px;
 	text-align:center;
