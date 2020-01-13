@@ -10,7 +10,7 @@
     $polaczenie = @new mysqli($host, $user, $password, $name);
 
     if($polaczenie->connect_errno!=0){
-        echo "Błąd: ".$db->connect_errno." Opis: ".$db->connect_error;
+        echo "Error: ".$polaczenie->connect_errno." Opis: ".$polaczenie->connect_error;
     } else {
         $login = $_POST['login'];
         $haslo = $_POST['haslo'];
