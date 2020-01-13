@@ -90,7 +90,7 @@ iframe {
 	width: 920px;
 	background:#fff;
 	padding:40px;
-	margin-top:90px;
+	margin-top:20px;
 	margin-bottom:auto;
 	margin-left:auto;
 	margin-right:auto;
@@ -109,6 +109,11 @@ iframe {
   line-height: 1.2;
   text-align: center;
   padding-bottom: 59px;
+}
+
+.info {
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 
@@ -142,6 +147,12 @@ iframe {
   color: #555555;
   line-height: 1.2;
   padding-right: 15px;
+}
+
+.input100-small {
+  border: 1px solid #e6e6e6;
+  border-radius: 13px;
+  padding: 10px 30px 9px 22px;
 }
 
 
@@ -178,6 +189,7 @@ textarea.input100 {
   height: 50px;
   background-color: #333333;
   border-radius: 25px;
+  margin-bottom: 20px;
 
   font-family: Verdana;
   font-size: 16px;
@@ -190,9 +202,40 @@ textarea.input100 {
   transition: all 0.4s;
 }
 
+#btn {
+	
+	border: none;
+	background-color: rgb(95, 95, 95);
+	padding: 14px 28px;
+	font-size: 16px;
+	cursor: pointer;
+	display: inline-block;
+	color: white;
+	font-weight: 500;
+	font-family:Verdana;
+	border-radius:5px;
+  margin-left:35px;
+  margin-top: 20px;
+}
+
+#btn:hover {background: #45a049;}
+
+a {
+  text-decoration: none;
+}
 
 .przycisk:hover {
   background-color: #00ad5f;
+}
+
+.create {
+	display: flex;
+	justify-content: space-between;
+	font-size: 12px;
+}
+
+.no-wrap {
+  white-space: nowrap;
 }
 
 

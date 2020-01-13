@@ -120,10 +120,6 @@ iframe {
   padding:10px;
 }
 
-.margin-bottom {
-    margin-bottom: 30px;
-}
-
 .rs1-butt-input100 {
   width: calc((100% - 30px) / 2);
 }
@@ -141,10 +137,14 @@ iframe {
   width: 100%;
   background: transparent;
   font-family: Verdana;
-  font-size: 14px;
+  font-size: 12px;
   color: black;
   line-height: 1.2;
   padding-right: 15px;
+}
+
+.no-wrap {
+  white-space: nowrap;
 }
 
 .input100-big {
@@ -178,9 +178,10 @@ input.input100 {
   height: 50px;
   background-color: #333333;
   border-radius: 25px;
+  margin-bottom: 40px;
 
   font-family: Verdana;
-  font-size: 16px;
+  font-size: 12px;
   color: #fff;
   line-height: 1.2;
 

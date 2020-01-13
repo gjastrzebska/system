@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 12 Sty 2020, 13:24
+-- Czas generowania: 13 Sty 2020, 01:36
 -- Wersja serwera: 10.4.11-MariaDB
 -- Wersja PHP: 7.4.1
 
@@ -84,7 +84,11 @@ CREATE TABLE `uzytkownicy` (
 INSERT INTO `uzytkownicy` (`idUzytkownika`, `imie`, `nazwisko`, `login`, `haslo`) VALUES
 (1, 'Karolina', 'Nowak', 'k.nowak', 'k.nowak123'),
 (2, 'Michał', 'Kowal', 'm.kowal', 'm.kowal123'),
-(3, 'Lena', 'Suchocka', 'l.suchocka', 'l.suchocka123');
+(3, 'Lena', 'Suchocka', 'l.suchocka', 'l.suchocka123'),
+(4, 'Blanka', 'Janowska', 'b.janowska', 'b.janowska123'),
+(5, 'Cezary', 'Homski', 'c.homski', 'c.homski123'),
+(6, 'Ewa', 'Bachowska', 'e.bachowska', 'e.bachowska123'),
+(7, 'Igor', 'Andrzejewicz', 'i.andrzejewicz', 'i.andrzejewicz123');
 
 -- --------------------------------------------------------
 
@@ -99,6 +103,7 @@ CREATE TABLE `zdarzenia` (
   `idKategorii` int(11) NOT NULL,
   `zdarzenie` varchar(200) NOT NULL,
   `opis` varchar(1000) NOT NULL,
+  `nr_pokoju` int(5) NOT NULL,
   `data` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -106,11 +111,12 @@ CREATE TABLE `zdarzenia` (
 -- Zrzut danych tabeli `zdarzenia`
 --
 
-INSERT INTO `zdarzenia` (`idZdarzenia`, `idUzytkownika`, `idPriorytetu`, `idKategorii`, `zdarzenie`, `opis`, `data`) VALUES
-(1, 1, 1, 1, 'Problem z komunikacją w systemie firmowym', 'Podczas wysyłania wiadomości do innego współpracownika wiadomość zostaje wysłana, ale nie pojawia się w konwersacji', '2020-01-12 12:16:15'),
-(2, 3, 2, 2, 'Niedziałająca drukarka w pokoju 220', 'Drukarka włącza się, ale nie drukuje', '2020-01-12 08:16:30'),
-(3, 2, 3, 1, 'Uprawnienia do programu', 'Nie mogę korzystać z programu X, gdyż nie mam odpowiednich uprawnień', '2020-01-12 12:11:27'),
-(4, 2, 3, 3, 'Instalacja programu Y', 'Potrzebna pomoc w instalacji programu Y', '2020-01-12 08:22:29');
+INSERT INTO `zdarzenia` (`idZdarzenia`, `idUzytkownika`, `idPriorytetu`, `idKategorii`, `zdarzenie`, `opis`, `nr_pokoju`, `data`) VALUES
+(1, 1, 1, 1, 'Problem z komunikacją w systemie firmowym', 'Podczas wysyłania wiadomości do innego współpracownika wiadomość zostaje wysłana, ale nie pojawia się w konwersacji', 200, '2020-01-08 12:39:12'),
+(2, 3, 2, 2, 'Niedziałająca drukarka', 'Drukarka włącza się, ale nie drukuje', 101, '2020-01-12 15:25:48'),
+(3, 2, 3, 1, 'Uprawnienia do programu', 'Nie mogę korzystać z programu X, gdyż nie mam odpowiednich uprawnień', 5, '2019-12-27 13:39:28'),
+(4, 2, 3, 3, 'Instalacja programu Y', 'Potrzebna pomoc w instalacji programu Y', 120, '2020-01-03 13:39:40'),
+(5, 3, 2, 2, 'Niedziałająca klawiatura', 'Klawiatura wcześniej działała bez zarzutu, ale teraz niestety nie działa', 12, '2020-01-09 16:27:10');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -163,13 +169,13 @@ ALTER TABLE `priorytety`
 -- AUTO_INCREMENT dla tabeli `uzytkownicy`
 --
 ALTER TABLE `uzytkownicy`
-  MODIFY `idUzytkownika` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idUzytkownika` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT dla tabeli `zdarzenia`
 --
 ALTER TABLE `zdarzenia`
-  MODIFY `idZdarzenia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idZdarzenia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- Ograniczenia dla zrzutów tabel
